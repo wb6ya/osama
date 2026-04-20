@@ -1,16 +1,77 @@
-# React + Vite
+# Qawayim Login
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern login page built with **React + Vite + Tailwind CSS**.
 
-Currently, two official plugins are available:
+The app displays a full-screen background video with a glass-style login panel including:
+- Email and password fields
+- Password show/hide toggle
+- "Forgot Password" and "Sign Up" links (UI only)
+- Responsive layout for desktop and mobile
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React 19
+- Vite 8
+- Tailwind CSS 4
+- ESLint 9
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+### 1) Install dependencies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+### 2) Configure environment variables
+
+Copy `.env.example` to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Example value:
+
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+> Note: `VITE_API_URL` is prepared for API integration and is not yet used by the current UI-only login form.
+
+### 3) Run development server
+
+```bash
+npm run dev
+```
+
+Vite will print the local URL (usually `http://localhost:5173`).
+
+## Available Scripts
+
+- `npm run dev` - start development server
+- `npm run build` - create production build in `dist/`
+- `npm run preview` - preview production build locally
+- `npm run lint` - run ESLint
+
+## Project Structure
+
+```text
+qawayim-login/
+- public/
+  - 5.png          # Logo image
+  - osama.mp4      # Background video
+- src/
+  - App.jsx        # Login page UI
+  - main.jsx       # App entry point
+  - index.css      # Tailwind import + global styles
+- .env.example
+- tailwind.config.js
+- package.json
+```
+
+## Notes
+
+- Background assets are loaded from `public/` using root paths (`/5.png`, `/osama.mp4`).
+- The current form logs submitted values to the browser console.
+- Connect your real authentication API in `src/App.jsx` (`handleSubmit`) when ready.
